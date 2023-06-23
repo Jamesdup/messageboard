@@ -17,6 +17,7 @@ $password = filter_var($_POST['password']);
 $stmtLogin->bind_param();
 $stmtLogin->execute();
 $result = $stmtLogin->get_result();
+
 if($result->num_rows > 0){
     while($row = $result->fetch_assoc()){
         $_SESSION["id"] = $row['id'];
@@ -25,7 +26,7 @@ if($result->num_rows > 0){
     }
     header("Location: ajaxMessageBoard.php");
 }else{
-    echo "Incorrect username or password! Try again."
+    echo "Incorrect username or password! Try again.";
 }
 }
 ?>

@@ -14,4 +14,6 @@ $password = filter_var($_POST['password'], FILTER_SANITIZE_STRING);
 
 $stmtReg->bind_param("ssss", $email, $username, $date, $password);
 $stmtReg->execute();
+
+header("Location: mblogin.html");
 ?>
