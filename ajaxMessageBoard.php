@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <?php
     echo "<div id='banner'><a id='limb'>Tools</a><a id='hyperbuttons' href='http://dev-insili.co/cvdpcr.php'>CVD-PCR</a><a id='hyperbuttons' href='http://dev-insili.co/tailandbc.php'>Tail & BC</a><a id='hyperbuttons' href='http://dev-insili.co/BirthdayBotGUI.php'>BirthdayBot</a><a id='hyperbuttons' href='http://dev-insili.co/ajaxMessageBoard.html'>MessageBoard</a><a id='hyperbuttons' href='https://sequencescape.psd.sanger.ac.uk/login'>Sequencescape</a><a id='hyperbuttons' href='https://limber.psd.sanger.ac.uk/'>Limber</a></div><br>";
-    new_session();
-    if(!isset($_SESSION["username"])){
+    session_start();
+    if(!isset($_SESSION["user"])){
         header("Location: mblogin");
     }else{
-        echo "<a id='welcomeMsg'>Hello, ".$_SESSION['username']."";
+        echo "<a id='welcomeMsg'>Hello, ".$_SESSION['user']."</a>";
     }
 ?>
 <html>

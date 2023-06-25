@@ -1,12 +1,16 @@
 <?php
-$servername = "";
-$username = "";
-$password = "";
-$dbname = "";
-$conn = new mysqli($GLOBALS['servername'],$GLOBALS['username'],$GLOBALS['password'],$GLOBALS['dbname']);
+session_start();
+
+$ini = parse_ini_file("config.ini");
+$servername = $ini['servername'];
+$username = $ini['username'];
+$password = $ini['password'];
+$dbname = $ini['dbname'];
+
+$conn = new mysqli($servername,$username,$password,$dbname);
 
 
-$stmtGetMessage = $conn->prepare("SELECT name, date, message FROM messageBoard");
+$stmtGetMessage = $conn->prepare("SELECT name, date, message FROM board");
 $stmtGetMessage->execute();
 $result = $stmtGetMessage->get_result();
 if($result->num_rows > 0){

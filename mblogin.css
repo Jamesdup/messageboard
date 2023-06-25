@@ -16,6 +16,8 @@
     padding:10px;
     width:250px;
     background-color: green;
+    border-color:black;
+    
 }
 #buttonField:hover{
     border-style: solid;
@@ -73,4 +75,11 @@ input[type=password]{
 form{
     margin: 0 auto;
 
+}
+#regsuccess{
+    text-align:center;
+    font-weight:bold;
+    font-family:Arial;
+    font-size:20px;
+    background-color: green;
 }

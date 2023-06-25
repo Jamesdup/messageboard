@@ -115,4 +115,8 @@ body{
 #date{
     padding:0px 0px 0px 10px;
 }
-
+#welcomeMsg{
+    font-family:Arial;
+    font-size:16;
+    font-weight:bold;
+}
