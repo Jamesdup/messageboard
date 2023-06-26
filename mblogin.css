@@ -1,4 +1,7 @@
 
+body{
+    background-color:gray;
+}
 #loginContainer{
     font-family: Arial;
     padding:20px 0px 0px 0px;
@@ -40,8 +43,17 @@ font-family:Arial;
 font-size: 22px;
 font-weight: bold;
 }
+#signuplink{
+    font-family: Arial;
+    color:blue;
+    padding: 8px;
+    text-decoration: none;
+    font-size:12px;
+}
 #resetLinks{
-    padding:5px 0px 0px 0px;
+    font-family: Arial;
+    color:black;
+    padding: 8px;
     text-decoration: none;
     font-size:12px;
 }

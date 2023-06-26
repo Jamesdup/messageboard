@@ -1,12 +1,14 @@
 
 <?php
-$servername = "";
-$username = "";
-$password = "";
-$dbname = "";
+$ini = parse_ini_file("config.ini");
+$servername = $ini['servername'];
+$username = $ini['username'];
+$password = $ini['password'];
+$dbname = $ini['dbname'];
 
-$conn = new mysqli($GLOBALS['servername'],$GLOBALS['username'],$GLOBALS['password'],$GLOBALS['dbname']);
-$stmtGetMessage = $conn->prepare("DELETE FROM messageBoard");
+
+$conn = new mysqli("$servername, $username, $password, $dbname");
+$stmtGetMessage = $conn->prepare("DELETE FROM board");
 $stmtGetMessage->execute();
 $stmtGetMessage->close();
 ?>

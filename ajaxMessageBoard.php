@@ -3,9 +3,9 @@
     echo "<div id='banner'><a id='limb'>Tools</a><a id='hyperbuttons' href='http://dev-insili.co/cvdpcr.php'>CVD-PCR</a><a id='hyperbuttons' href='http://dev-insili.co/tailandbc.php'>Tail & BC</a><a id='hyperbuttons' href='http://dev-insili.co/BirthdayBotGUI.php'>BirthdayBot</a><a id='hyperbuttons' href='http://dev-insili.co/ajaxMessageBoard.html'>MessageBoard</a><a id='hyperbuttons' href='https://sequencescape.psd.sanger.ac.uk/login'>Sequencescape</a><a id='hyperbuttons' href='https://limber.psd.sanger.ac.uk/'>Limber</a></div><br>";
     session_start();
     if(!isset($_SESSION["user"])){
-        header("Location: mblogin");
+        header("Location: mblogin.html");
     }else{
-        echo "<a id='welcomeMsg'>Hello, ".$_SESSION['user']."</a>";
+        echo "<a id='welcomeMsg'>Hello, ".$_SESSION['user']."</a> <a href='logout.php' id='logout'>Logout</a>";
     }
 ?>
 <html>
@@ -15,13 +15,13 @@
     </head>
 <body>
 <div>
-    <h1>AjaxMessageBoard</h1>
+    <h1>MessageBoard</h1>
     <a id="a"></a>
     <a id="p"></a>
 </div>
 <div>
     <form>
-        <br><input style="color:white;" type="text" id="name" name="name" placeholder="Name.." required><br>
+        <br>
         <textarea type="text" id="message" name="message" col="16" row="3" placeholder="Whats on your mind?" required></textarea>
     </form>
      <button id="btn" class="button">Submit</button>
@@ -42,10 +42,8 @@
     }
     
      function postMessage(){
-        var name =  document.getElementById("name").value;
         var message =  document.getElementById("message").value;
  
-        var nm = "name="+name;
         var msg = "message="+message;
         
         const xhttp = new XMLHttpRequest();
@@ -55,7 +53,7 @@
         }
         xhttp.open("POST","postMessage.php",true);
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xhttp.send(nm+"&"+msg);
+        xhttp.send(msg);
         
     }
 

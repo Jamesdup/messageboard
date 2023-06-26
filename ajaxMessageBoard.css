@@ -120,3 +120,12 @@ body{
     font-size:16;
     font-weight:bold;
 }
+
+#logout{
+    font-family:Arial;
+    font-size:16;
+    font-weight:bold;
+    float: right;
+    padding:0px 20px px 0px;
+    text-decoration: none;
+}
