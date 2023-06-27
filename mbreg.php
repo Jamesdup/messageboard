@@ -17,7 +17,9 @@ $password = filter_var($_POST['password'], FILTER_SANITIZE_STRING);
 
 $stmtReg->bind_param("ssssss", $email, $fname, $lname, $username, $date, $password);
 $stmtReg->execute();
+$conn->close();
 
-header("Location: mblogin.html");
-
+$registerMsg = urlencode("Successfully registered! Please login.");
+header("Location: loginpage.php?regSuccess=".$registerMsg);
+die;
 ?>

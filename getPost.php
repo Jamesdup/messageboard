@@ -21,6 +21,6 @@ if($result->num_rows > 0){
 }else{
     echo "No posts exist. Please write one!";
 }
-
+$stmtGetMessage->close();
 $conn->close();
 ?>

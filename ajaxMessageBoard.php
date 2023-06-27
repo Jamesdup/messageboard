@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <?php
-    echo "<div id='banner'><a id='limb'>Tools</a><a id='hyperbuttons' href='http://dev-insili.co/cvdpcr.php'>CVD-PCR</a><a id='hyperbuttons' href='http://dev-insili.co/tailandbc.php'>Tail & BC</a><a id='hyperbuttons' href='http://dev-insili.co/BirthdayBotGUI.php'>BirthdayBot</a><a id='hyperbuttons' href='http://dev-insili.co/ajaxMessageBoard.html'>MessageBoard</a><a id='hyperbuttons' href='https://sequencescape.psd.sanger.ac.uk/login'>Sequencescape</a><a id='hyperbuttons' href='https://limber.psd.sanger.ac.uk/'>Limber</a></div><br>";
     session_start();
     if(!isset($_SESSION["user"])){
-        header("Location: mblogin.html");
+        header("Location: loginpage.php");
     }else{
-        echo "<a id='welcomeMsg'>Hello, ".$_SESSION['user']."</a> <a href='logout.php' id='logout'>Logout</a>";
+        echo "<div id='banner'><a id='limb'>Tools</a><a id='hyperbuttons' href='http://dev-insili.co/cvdpcr.php'>CVD-PCR</a><a id='hyperbuttons' href='http://dev-insili.co/tailandbc.php'>Tail & BC</a><a id='hyperbuttons' href='http://dev-insili.co/BirthdayBotGUI.php'>BirthdayBot</a><a id='hyperbuttons' href='http://dev-insili.co/ajaxMessageBoard.html'>MessageBoard</a><a id='hyperbuttons' href='https://sequencescape.psd.sanger.ac.uk/login'>Sequencescape</a><a id='hyperbuttons' href='https://limber.psd.sanger.ac.uk/'>Limber</a></div><br>";
+        echo "<p id='welcomeMsg'>Hello, ".$_SESSION['user']." <a href='logout.php' id='logout'>Logout</a></p>";
     }
 ?>
 <html>
@@ -15,7 +15,7 @@
     </head>
 <body>
 <div>
-    <h1>MessageBoard</h1>
+    <h1>Board</h1>
     <a id="a"></a>
     <a id="p"></a>
 </div>

@@ -23,6 +23,7 @@ $message = filter_var($_POST['message'],FILTER_SANITIZE_STRING);
 $stmtGetMessage->bind_param("ss",$name, $message);
 $stmtGetMessage->execute();
 $stmtGetMessage->close();
+$conn->close();
 }else{
     echo "No posts exist. Please write one!";
 }

@@ -27,7 +27,11 @@ if($result->num_rows > 0){
     }
     header("Location: ajaxMessageBoard.php");
 }else{
-    echo "Incorrect username or password! Try again.";
+    $retryMsg = urlencode("Incorrect username or password! Try again.");
+    header("Location: loginpage.php?failedLogin=".$retryMsg);
+    die;
 }
+$stmtLogin->close();
+$conn->close->close();
 }
 ?>

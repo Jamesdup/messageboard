@@ -11,4 +11,5 @@ $conn = new mysqli("$servername, $username, $password, $dbname");
 $stmtGetMessage = $conn->prepare("DELETE FROM board");
 $stmtGetMessage->execute();
 $stmtGetMessage->close();
+$conn->close();
 ?>

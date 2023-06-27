@@ -3,6 +3,7 @@
 session_start();
 session_unset();
 session_destroy();
-
-header("Location: mblogin.html");
+$logoutMsg = urlencode("Successfully logged out!");
+header("Location: loginpage.php?logoutMessage=".$logoutMsg);
+die;
 ?>
