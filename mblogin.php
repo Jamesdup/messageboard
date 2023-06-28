@@ -11,25 +11,27 @@ session_start();
 $conn = new mysqli($servername,$username,$password,$dbname);
 
 if(isset($_POST['username']) && isset($_POST['password'])){
-$stmtLogin = $conn->prepare("SELECT id, username, dob FROM users WHERE username = ? AND password = ?");
+$stmtLogin = $conn->prepare("SELECT id, username, dob, password FROM users WHERE username = ?");
 $user = filter_var($_POST['username']);
-$pass = filter_var($_POST['password']);
-
-$stmtLogin->bind_param("ss", $user, $pass);
+$stmtLogin->bind_param("s", $user);
 $stmtLogin->execute();
 $result = $stmtLogin->get_result();
-
 if($result->num_rows > 0){
-    while($row = $result->fetch_assoc()){
+    $row = $result->fetch_assoc();
+        if(password_verify($_POST['password'], $row['password'])){
         $_SESSION["id"] = $row['id'];
         $_SESSION["user"] = $row['username'];
-        $_SESSION["dob"] = $row['dateofbirth']; 
-    }
+        $_SESSION["dob"] = $row['dateofbirth'];
+        }else{
+            $retryMsg = urlencode("Incorrect username or password! Try again.");
+            header("Location: loginpage.php?failedLogin=".$retryMsg);
+            exit();
+        }
     header("Location: ajaxMessageBoard.php");
 }else{
-    $retryMsg = urlencode("Incorrect username or password! Try again.");
+    $retryMsg = urlencode("Please try again! Enter your details.");
     header("Location: loginpage.php?failedLogin=".$retryMsg);
-    die;
+    exit();
 }
 $stmtLogin->close();
 $conn->close->close();
