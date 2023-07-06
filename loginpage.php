@@ -14,8 +14,8 @@
             <?php if(isset($_GET['failedLogin'])){echo "<p id='retryMsg'>".$_GET['failedLogin']."</p><br>";} ?>
 
                 <label id="loginLab">Login</label><br><br>
-                <input type="text" name="username" placeholder="Username"><br><br>
-                <input type="password" name="password" placeholder="*******"><br><br>
+                <input type="text" name="username" placeholder="Username" required><br><br>
+                <input type="password" name="password" placeholder="*******" required><br><br>
                 <input id="buttonField" type="submit" name="submit" value="Submit"><br><br>
                 <a id="signuplink"href="registerpage.php">New? Sign up here!</a>
                 <div ><a id="resetLinks" href="">Forgot username</a>

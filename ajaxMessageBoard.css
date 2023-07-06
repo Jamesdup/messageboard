@@ -139,5 +139,15 @@ body{
     font-size:18px;
     font-weight:bold;
     text-decoration: none;
-
+}
+#profile{
+    font-family: Arial;
+    font-size:18px;
+    text-align: center;
+}
+#profileHeader{
+    font-family: Arial;
+    font-size:24px;
+    font-weight: bold;
+    text-align: center;
 }
