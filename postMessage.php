@@ -17,7 +17,7 @@ if($conn->error === TRUE){
 
 // checks to see if a message is present and a user is logged in.
 if(!empty($_POST['message']) && isset($_SESSION['user']))  {
-$stmtGetMessage = $conn->prepare("INSERT INTO board (name,message) VALUES (?,?)");
+$stmtGetMessage = $conn->prepare("INSERT INTO mb (name,message) VALUES (?,?)");
 $name = filter_var($_SESSION['user'],FILTER_SANITIZE_STRING);
 $message = filter_var($_POST['message'],FILTER_SANITIZE_STRING);
 $stmtGetMessage->bind_param("ss",$name, $message);

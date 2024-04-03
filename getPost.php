@@ -10,7 +10,7 @@ $dbname = $ini['dbname'];
 $conn = new mysqli($servername,$username,$password,$dbname);
 
 
-$stmtGetMessage = $conn->prepare("SELECT name, date, message FROM board");
+$stmtGetMessage = $conn->prepare("SELECT name, date, message FROM mb");
 $stmtGetMessage->execute();
 $result = $stmtGetMessage->get_result();
 if($result->num_rows > 0){
